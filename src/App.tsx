@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { RemoteOrderDivComponent } from "./remoteComponents";
+import { RemoteOrderDivComponent, RemoteSettingsDivComponent } from "./remoteComponents";
 import "./index.css";
 
 
@@ -8,6 +8,7 @@ const App = () => (
     <div>Name: dhaam_main_app_ui</div>
     <div>Framework: react-19</div>
     <RemoteOrderDivComponent/>
+    <RemoteSettingsDivComponent/>
   </div>
 );
 
