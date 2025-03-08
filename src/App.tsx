@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { RemoteOrderDivComponent, RemoteSettingsDivComponent, RemoteStoreDivComponent } from "./remoteComponents";
+import { RemoteOrderDivComponent, RemoteSettingsDivComponent, RemoteStoreDivComponent, RemoteAdminDivComponent } from "./remoteComponents";
 import "./index.css";
 
 
@@ -10,6 +10,7 @@ const App = () => (
     <RemoteOrderDivComponent/>
     <RemoteSettingsDivComponent/>
     <RemoteStoreDivComponent/>
+    <RemoteAdminDivComponent/>
   </div>
 );
 
