@@ -3,6 +3,7 @@ import { RemoteOrderDivComponent, RemoteSettingsDivComponent, RemoteStoreDivComp
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 const App = () => {
@@ -33,13 +34,19 @@ const App = () => {
   //   <RemoteAdminDivComponent/>
   // </div>
   return (
-    <div>
-      <SidebarNav
-        onSettingsSubItemClick={handleSettingsSubItemClick}
-        onItemClick={handleItemClick}
-        currentView={currentView}
-      />
-    </div>
+    <BrowserRouter>
+      <div>
+        <SidebarNav
+          onSettingsSubItemClick={handleSettingsSubItemClick}
+          onItemClick={handleItemClick}
+          currentView={currentView}
+        />
+      </div>
+      <Routes>
+        <Route path="/stores" element={<RemoteStoreDivComponent />} />
+        <Route path="/settings" element={<RemoteSettingsDivComponent />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
