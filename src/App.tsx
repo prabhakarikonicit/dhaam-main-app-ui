@@ -4,6 +4,7 @@ import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TopHeader from "./localComponents/topHeader";
 
 
 const App = () => {
@@ -36,11 +37,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <div>
+      <div className="flex flex-col h-screen">
+      <TopHeader
+        userName="Aman Kumar"
+        onMenuClick={toggleSidebar}
+        width={width}
+      />
         <SidebarNav
           onSettingsSubItemClick={handleSettingsSubItemClick}
           onItemClick={handleItemClick}
           currentView={currentView}
         />
+      </div>
       </div>
       <Routes>
         <Route path="/stores" element={<RemoteStoreDivComponent />} />

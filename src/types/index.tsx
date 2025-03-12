@@ -15,3 +15,10 @@ export interface SidebarItemProps {
     onItemClick: (view: string) => void;
     currentView: string;
   }
+
+  export interface TopHeaderProps {
+    userName: string;
+    userImage?: string;
+    onMenuClick: () => void;
+    width?: number;
+  }
