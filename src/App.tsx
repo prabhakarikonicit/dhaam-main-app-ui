@@ -53,6 +53,7 @@ const App = () => {
       <Routes>
         <Route path="/stores" element={<RemoteStoreDivComponent />} />
         <Route path="/settings" element={<RemoteSettingsDivComponent />} />
+        <Route path="/orders" element={<RemoteOrderDivComponent/>} />
       </Routes>
     </BrowserRouter>
   );
