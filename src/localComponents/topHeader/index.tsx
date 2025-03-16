@@ -53,7 +53,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({
             </button>
           )}
   
-          {!isMobile && <img src={Logo} className="h-8 text-white " />}
+          {!isMobile && <img width="138" height="33" src={Logo} className="h-8 text-white " />}
   
           {/* Search */}
   
