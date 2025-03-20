@@ -1,10 +1,11 @@
 import ReactDOM from "react-dom/client";
-import {
-  RemoteOrderDivComponent,
-  RemoteSettingsDivComponent,
-  RemoteStoreDivComponent,
-  RemoteAdminDivComponent,
-} from "./remoteComponents";
+// import {
+//   RemoteOrderDivComponent,
+//   RemoteSettingsDivComponent,
+//   RemoteStoreDivComponent,
+//   RemoteAdminDivComponent,
+// } from "./remoteComponents";
+import "./App.css";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -113,8 +114,7 @@ const App = () => {
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-1 overflow-hidden">
-            {/* {renderContent()} */}
+          {/* <div className="flex-1 overflow-hidden">
             <Routes>
               <Route path="/stores" element={<RemoteStoreDivComponent />} />
               <Route
@@ -123,7 +123,7 @@ const App = () => {
               />
               <Route path="/orders" element={<RemoteOrderDivComponent />} />
             </Routes>
-          </div>
+          </div> */}
         </div>
       </div>
     </BrowserRouter>

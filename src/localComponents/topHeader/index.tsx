@@ -65,7 +65,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({
                 } rounded-lg`}
               >
                 <div
-                  className={`absolute inset-y-0 left-50 pl-3 flex items-center pointer-events-none font-inter font-[600] bg-backgroundWhite rounded-custom `}
+                  className={`absolute inset-y-0 pl-3 flex items-center pointer-events-none font-inter font-[600] bg-backgroundWhite rounded-custom `}
                 >
                   <Search
                     className={`h-4 w-4 ${
