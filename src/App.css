@@ -10,3 +10,7 @@ html {
 button {
     cursor: pointer;
   }
+
+  .force-relative{
+    position: relative !important;
+  }

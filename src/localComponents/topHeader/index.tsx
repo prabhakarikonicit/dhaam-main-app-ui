@@ -64,19 +64,16 @@ const TopHeader: React.FC<TopHeaderProps> = ({
                   isMobile ? "bg-white" : "bg-white"
                 } rounded-lg`}
               >
-                <div
-                  className={`absolute inset-y-0 pl-3 flex items-center pointer-events-none font-inter font-[600] bg-backgroundWhite rounded-custom `}
-                >
-                  <Search
-                    className={`h-4 w-4 ${
+
+                <Search
+                    className={`h-4 w-4 ml-3 ${
                       isMobile ? "text-gray-500" : "text-gray-500"
                     }`}
                   />
-                </div>
                 <input
                   type="text"
                   placeholder="Search"
-                  className={`w-3/4 h-9 pl-10 pr-3 rounded-lg ${
+                  className={`w-3/4 h-9 pl-4 pr-3 rounded-lg ${
                     isMobile
                       ? "bg-white text-white placeholder-gray/60"
                       : "bg-white text-gray-900 placeholder-gray-500"

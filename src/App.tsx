@@ -1,11 +1,12 @@
 import ReactDOM from "react-dom/client";
-// import {
+import {
 //   RemoteOrderDivComponent,
-//   RemoteSettingsDivComponent,
+RemoteSettingsConfigsComponent,
 //   RemoteStoreDivComponent,
 //   RemoteAdminDivComponent,
-// } from "./remoteComponents";
+} from "./remoteComponents";
 import "./App.css";
+import "dhaam_settings_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -67,7 +68,7 @@ const App = () => {
           {/* Sidebar */}
           <div
             className={`
-            fixed sm:relative inset-y-0 left-0 
+            fixed sm:relative force-relative inset-y-0 left-0 
             transform ${
               isSidebarOpen || showSidebar
                 ? "translate-x-0"
@@ -114,16 +115,16 @@ const App = () => {
           </div>
 
           {/* Main Content Area */}
-          {/* <div className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-hidden">
             <Routes>
-              <Route path="/stores" element={<RemoteStoreDivComponent />} />
+              {/* <Route path="/stores" element={<RemoteStoreDivComponent />} /> */}
               <Route
                 path="/settings"
-                element={<RemoteSettingsDivComponent />}
+                element={<RemoteSettingsConfigsComponent />}
               />
-              <Route path="/orders" element={<RemoteOrderDivComponent />} />
+              {/* <Route path="/orders" element={<RemoteOrderDivComponent />} /> */}
             </Routes>
-          </div> */}
+          </div>
         </div>
       </div>
     </BrowserRouter>
