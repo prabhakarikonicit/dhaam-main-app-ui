@@ -4,6 +4,7 @@ import ErrorBoundary from "../errorBoundary";
 const RemoteSettingsConfigs = React.lazy(() => import('dhaam_settings_app_ui/ConfigurationsComponent'));
 const RemoteSettingsMarketPlaceDesign = React.lazy(() => import('dhaam_settings_app_ui/MarketPlaceDesignComponent'));
 const RemoteSettingsIntegration = React.lazy(() => import('dhaam_settings_app_ui/IntegrationComponent'));
+const RemoteSettingsGeneral = React.lazy(() => import('dhaam_settings_app_ui/GeneralComponent'));
 // const RemoteStoreDiv = React.lazy(() => import('dhaam_store_app_ui/StoreDiv'));
 // const RemoteAdminDiv = React.lazy(() => import('dhaam_admin_app_ui/AdminDiv'));
 // export const RemoteOrderDivComponent = () => {
@@ -41,6 +42,16 @@ const RemoteSettingsIntegration = React.lazy(() => import('dhaam_settings_app_ui
       <ErrorBoundary errorMessage="Remote Settings Integration is not available">
         <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
           <RemoteSettingsIntegration />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  export const RemoteSettingsGeneralComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Settings General is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteSettingsGeneral />
         </React.Suspense>
       </ErrorBoundary>
     );
