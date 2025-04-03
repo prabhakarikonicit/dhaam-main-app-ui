@@ -1,21 +1,21 @@
 import React from "react";
 import ErrorBoundary from "../errorBoundary";
-// const RemoteOrderDiv = React.lazy(() => import('dhaam_order_app_ui/OrderDiv'));
+const RemoteOrders = React.lazy(() => import('dhaam_order_app_ui/Orders'));
 const RemoteSettingsConfigs = React.lazy(() => import('dhaam_settings_app_ui/ConfigurationsComponent'));
 const RemoteSettingsMarketPlaceDesign = React.lazy(() => import('dhaam_settings_app_ui/MarketPlaceDesignComponent'));
 const RemoteSettingsIntegration = React.lazy(() => import('dhaam_settings_app_ui/IntegrationComponent'));
 const RemoteSettingsGeneral = React.lazy(() => import('dhaam_settings_app_ui/GeneralComponent'));
 // const RemoteStoreDiv = React.lazy(() => import('dhaam_store_app_ui/StoreDiv'));
 // const RemoteAdminDiv = React.lazy(() => import('dhaam_admin_app_ui/AdminDiv'));
-// export const RemoteOrderDivComponent = () => {
-//     return (
-//       <ErrorBoundary errorMessage="Remote Order Div is not available">
-//         <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
-//           <RemoteOrderDiv />
-//         </React.Suspense>
-//       </ErrorBoundary>
-//     );
-//   };
+export const RemoteOrdersComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Orders is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteOrders />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
 
   export const RemoteSettingsConfigsComponent = () => {
     return (

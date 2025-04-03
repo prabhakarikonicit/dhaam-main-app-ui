@@ -5,11 +5,13 @@ RemoteSettingsConfigsComponent,
 RemoteSettingsMarketPlaceDesignComponent,
 RemoteSettingsIntegrationComponent,
 RemoteSettingsGeneralComponent,
+RemoteOrdersComponent,
 //   RemoteStoreDivComponent,
 //   RemoteAdminDivComponent,
 } from "./remoteComponents";
 import "./App.css";
 import "dhaam_settings_app_ui/tailwindStyles";
+import "dhaam_order_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -138,7 +140,7 @@ const App = () => {
                 path="/settings/general"
                 element={<RemoteSettingsGeneralComponent />}
               />
-              {/* <Route path="/orders" element={<RemoteOrderDivComponent />} /> */}
+              <Route path="/orders" element={<RemoteOrdersComponent />} />
             </Routes>
           </div>
         </div>
