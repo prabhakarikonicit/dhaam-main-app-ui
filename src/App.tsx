@@ -11,7 +11,6 @@ RemoteOrdersComponent,
 } from "./remoteComponents";
 import "./App.css";
 import "dhaam_settings_app_ui/tailwindStyles";
-import "dhaam_order_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
