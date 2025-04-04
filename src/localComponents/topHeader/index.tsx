@@ -5,6 +5,7 @@ import Logo from '../../assets/images/logo.svg';
 import GlobeAlt from '../../assets/images/globe-alt.svg';
 import ExternalLink from '../../assets/images/external-link.svg';
 import Calendar from '../../assets/images/calendar.svg';
+import * as styles from "./index.module.css";
 
 const TopHeader: React.FC<TopHeaderProps> = ({
     userName,
@@ -82,7 +83,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({
               </div>
   
               {!isMobile && (
-                <button className="hidden md:flex sm:flex items-center h-[30px] bg-backgroundWhite rounded-lg px-4 ">
+                <button className={`${styles.topHeaderCutomHidden} md:flex sm:flex items-center h-[30px] bg-backgroundWhite rounded-lg px-4`}>
                   <img src={GlobeAlt} />
                   <span className="text-[12px] sm:px-1 md:px-1 font-inter font-[600] leading-[15.6px] text-gray-900">
                     www.design-mart.com
@@ -97,7 +98,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({
           {/* Right section */}
           <div className="flex items-center gap-3">
             {!isMobile && (
-              <button className="hidden md:flex items-center gap-2 px-3 py-1.5 font-[600] rounded-lg text-whiteColor text-[12px] font-inter">
+              <button className={`${styles.topHeaderCutomHidden} md:flex items-center gap-2 px-3 py-1.5 font-[600] rounded-lg text-whiteColor text-[12px] font-inter`}>
                 <svg className="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none">
                   <path
                     fillRule="evenodd"
