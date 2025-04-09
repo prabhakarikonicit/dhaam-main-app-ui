@@ -10,8 +10,6 @@ RemoteOrdersComponent,
 //   RemoteAdminDivComponent,
 } from "./remoteComponents";
 import "./App.css";
-import "dhaam_settings_app_ui/tailwindStyles";
-import "dhaam_order_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -41,6 +39,24 @@ const App = () => {
       toggleSidebar();
     }
   };
+// import remote app styles with error handling
+  useEffect(() => {
+    const loadRemoteStyles = async () => {
+      try {
+        await import ("dhaam_settings_app_ui/tailwindStyles");
+      }catch (error) {
+        console.error("failed to load remote settings styles");
+      }
+
+      try {
+        await import ("dhaam_order_app_ui/tailwindStyles");
+      }catch (error) {
+        console.error("failed to load remote settings styles");
+      }
+    }
+    loadRemoteStyles();
+
+  }, [])
   useEffect(() => {
     setShowSidebar(width >= 640);
     setShowCloseIcon(width < 375);
