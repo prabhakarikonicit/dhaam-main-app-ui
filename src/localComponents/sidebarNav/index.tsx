@@ -53,7 +53,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
         icon={<img src={Orders} />}
         text="Orders"
         onClick={() => handleItemClick("orders")}
-        hasSubmenu
+        active={currentView === "orders"}
       />
       <SidebarItem icon={<img src={Menu} />} text="Menu" hasSubmenu />
       <SidebarItem icon={<img src={Customers} />} text="Customers" />
@@ -62,7 +62,6 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
         text="Stores"
         onClick={() => handleItemClick("stores")}
         active={currentView === "stores"}
-        hasSubmenu
       />
       <SidebarItem
         icon={<img src={Settings} />}

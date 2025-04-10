@@ -14,14 +14,14 @@ import "./App.css";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import TopHeader from "./localComponents/topHeader";
 
 const App = () => {
   const [selectedSettingsItem, setSelectedSettingsItem] = useState<
     string | null
   >(null);
-  const [currentView, setCurrentView] = useState("dashboard");
+  const [currentView, setCurrentView] = useState(location.pathname.split('/')[1]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [showSidebar, setShowSidebar] = useState(width >= 640);
@@ -146,6 +146,7 @@ const App = () => {
           {/* Main Content Area */}
           <div className="flex-1 overflow-hidden">
             <Routes>
+              <Route path="/" element={<div>Home Screen</div>} />
               <Route path="/stores" element={<RemoteStoresComponent />} />
               <Route
                 path="/settings/configurations"
@@ -164,6 +165,7 @@ const App = () => {
                 element={<RemoteSettingsGeneralComponent />}
               />
               <Route path="/orders" element={<RemoteOrdersComponent />} />
+              <Route path="*" element={<div>Not Found</div>} />
             </Routes>
           </div>
         </div>
