@@ -6,6 +6,7 @@ RemoteSettingsMarketPlaceDesignComponent,
 RemoteSettingsIntegrationComponent,
 RemoteSettingsGeneralComponent,
 RemoteOrdersComponent,
+RemoteStoresComponent
 //   RemoteStoreDivComponent,
 //   RemoteAdminDivComponent,
 } from "./remoteComponents";
@@ -52,6 +53,12 @@ const App = () => {
         await import ("dhaam_order_app_ui/tailwindStyles");
       }catch (error) {
         console.error("failed to load remote settings styles");
+      }
+
+      try {
+        await import ("dhaam_store_app_ui/tailwindStyles");
+      }catch (error) {
+        console.error("failed to load remote store styles");
       }
     }
     loadRemoteStyles();
@@ -139,7 +146,7 @@ const App = () => {
           {/* Main Content Area */}
           <div className="flex-1 overflow-hidden">
             <Routes>
-              {/* <Route path="/stores" element={<RemoteStoreDivComponent />} /> */}
+              <Route path="/stores" element={<RemoteStoresComponent />} />
               <Route
                 path="/settings/configurations"
                 element={<RemoteSettingsConfigsComponent />}
