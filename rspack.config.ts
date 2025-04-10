@@ -44,6 +44,10 @@ export default defineConfig({
         type: "asset",
       },
       {
+        test: /\.png$/,
+        type: "asset",
+      },
+      {
         test: /\.module\.css$/,
         type: "css/module",
       },
