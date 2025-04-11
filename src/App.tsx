@@ -1,27 +1,36 @@
 import ReactDOM from "react-dom/client";
 import {
-//   RemoteOrderDivComponent,
-RemoteSettingsConfigsComponent,
-RemoteSettingsMarketPlaceDesignComponent,
-RemoteSettingsIntegrationComponent,
-RemoteSettingsGeneralComponent,
-RemoteOrdersComponent,
-RemoteStoresComponent
-//   RemoteStoreDivComponent,
-//   RemoteAdminDivComponent,
+  //   RemoteOrderDivComponent,
+  RemoteSettingsConfigsComponent,
+  RemoteSettingsMarketPlaceDesignComponent,
+  RemoteSettingsIntegrationComponent,
+  RemoteSettingsGeneralComponent,
+  RemoteOrdersComponent,
+  RemoteStoresComponent,
+  RemoteMenuCategoryComponent,
+  RemoteMenuProductComponent,
+  RemoteMenuAddOnsComponent,
+  RemoteMenuCombosComponent,
+  RemoteMenuDealsComponent,
+  //   RemoteStoreDivComponent,
+  //   RemoteAdminDivComponent,
 } from "./remoteComponents";
 import "./App.css";
+import "dhaam_settings_app_ui/tailwindStyles";
+// import "dhaam_order_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopHeader from "./localComponents/topHeader";
 
 const App = () => {
   const [selectedSettingsItem, setSelectedSettingsItem] = useState<
     string | null
   >(null);
-  const [currentView, setCurrentView] = useState(location.pathname.split('/')[1]);
+  const [currentView, setCurrentView] = useState(
+    location.pathname.split("/")[1]
+  );
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [showSidebar, setShowSidebar] = useState(width >= 640);
@@ -29,6 +38,10 @@ const App = () => {
   const handleSettingsSubItemClick = (item: string) => {
     setSelectedSettingsItem(item);
     setCurrentView("settings");
+  };
+  const handleMenuSubItemClick = (item: string) => {
+    setSelectedSettingsItem(item);
+    setCurrentView("menu");
   };
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
   const handleItemClick = (view: string) => {
@@ -40,30 +53,29 @@ const App = () => {
       toggleSidebar();
     }
   };
-// import remote app styles with error handling
+  // import remote app styles with error handling
   useEffect(() => {
     const loadRemoteStyles = async () => {
       try {
-        await import ("dhaam_settings_app_ui/tailwindStyles");
-      }catch (error) {
+        await import("dhaam_settings_app_ui/tailwindStyles");
+      } catch (error) {
         console.error("failed to load remote settings styles");
       }
 
       try {
-        await import ("dhaam_order_app_ui/tailwindStyles");
-      }catch (error) {
+        await import("dhaam_order_app_ui/tailwindStyles");
+      } catch (error) {
         console.error("failed to load remote settings styles");
       }
 
       try {
-        await import ("dhaam_store_app_ui/tailwindStyles");
-      }catch (error) {
+        await import("dhaam_store_app_ui/tailwindStyles");
+      } catch (error) {
         console.error("failed to load remote store styles");
       }
-    }
+    };
     loadRemoteStyles();
-
-  }, [])
+  }, []);
   useEffect(() => {
     setShowSidebar(width >= 640);
     setShowCloseIcon(width < 375);
@@ -134,6 +146,7 @@ const App = () => {
               )}
               <SidebarNav
                 onSettingsSubItemClick={handleSettingsSubItemClick}
+                onMenuSubItemClick={handleMenuSubItemClick}
                 onItemClick={handleItemClick}
                 currentView={currentView}
                 setCurrentView={setCurrentView}
@@ -164,6 +177,28 @@ const App = () => {
                 path="/settings/general"
                 element={<RemoteSettingsGeneralComponent />}
               />
+              {/** Menu routes start */}
+              <Route
+                path="/menu/category"
+                element={<RemoteMenuCategoryComponent />}
+              />
+              <Route
+                path="/menu/product"
+                element={<RemoteMenuProductComponent />}
+              />
+              <Route
+                path="/menu/add-ons"
+                element={<RemoteMenuAddOnsComponent />}
+              />
+              <Route
+                path="/menu/combos"
+                element={<RemoteMenuCombosComponent />}
+              />
+              <Route
+                path="/menu/deals"
+                element={<RemoteMenuDealsComponent />}
+              />
+              {/** Menu routes end */}
               <Route path="/orders" element={<RemoteOrdersComponent />} />
               <Route path="*" element={<div>Not Found</div>} />
             </Routes>

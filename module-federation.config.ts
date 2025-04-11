@@ -6,6 +6,7 @@ export const mfConfig = {
     dhaam_settings_app_ui: "dhaam_settings_app_ui@http://localhost:3003/dhaam_settings_app_ui.js",
     dhaam_store_app_ui: "dhaam_store_app_ui@http://localhost:3004/dhaam_store_app_ui.js",
     // dhaam_admin_app_ui: "dhaam_admin_app_ui@http://localhost:3005/remoteEntry.js",
+    dhaam_menu_app_ui: "dhaam_menu_app_ui@http://localhost:3006/dhaam_menu_app_ui.js",
   },
   shared: ["react", "react-dom"],
 };
