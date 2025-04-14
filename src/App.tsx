@@ -18,6 +18,7 @@ import {
 import "./App.css";
 import "dhaam_settings_app_ui/tailwindStyles";
 // import "dhaam_order_app_ui/tailwindStyles";
+import "dhaam_menu_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -157,7 +158,7 @@ const App = () => {
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-hidden bg-background-grey">
             <Routes>
               <Route path="/" element={<div>Home Screen</div>} />
               <Route path="/stores" element={<RemoteStoresComponent />} />
