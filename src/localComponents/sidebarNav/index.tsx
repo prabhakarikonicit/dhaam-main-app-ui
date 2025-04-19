@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 
 const SidebarNav: React.FC<SidebarNavProps> = ({
   onSettingsSubItemClick,
-  onItemClick,
   currentView,
   setCurrentView
 }) => {
@@ -24,6 +23,13 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
     { text: "Configurations" },
     { text: "Marketplace Design" },
   ];
+  const menuSubItems = [
+    { text: "Category" },
+    { text: "Product" },
+    { text: "AddOns" },
+    { text: "Combos" },
+    { text: "Deals" },
+  ];
   const handleSubItemClick = (item: string) => {
       const path = `${currentView}/${item.toLocaleLowerCase().replace(' ', '_')}`
       navigate(path);
@@ -31,36 +37,45 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
     onSettingsSubItemClick(item);
   };
 
-  const handleItemClick = (view: string) => {
-    navigate(`/${view}`);
-    onItemClick(view);
+  const handleItemClick = (view: string, hasSubItems:boolean) => {
+    if(!hasSubItems) navigate(`/${view}`);
+    setCurrentView(view)
   };
   return (
     <nav className="space-y-1">
       <SidebarItem
         icon={<img src={GetStarted} />}
         text="Get Started"
-        onClick={() => handleItemClick("")}
+        onClick={() => handleItemClick("get_started", false)}
         active={currentView === "get_started"}
       />
       <SidebarItem
         icon={<img src={Dashboard} />}
         text="Dashboard"
-        onClick={() => handleItemClick("")}
+        onClick={() => handleItemClick("dashboard", false)}
         active={currentView === "dashboard"}
       />
       <SidebarItem
         icon={<img src={Orders} />}
         text="Orders"
-        onClick={() => handleItemClick("orders")}
+        onClick={() => handleItemClick("orders", false)}
         active={currentView === "orders"}
       />
-      <SidebarItem icon={<img src={Menu} />} text="Menu" hasSubmenu />
+      <SidebarItem
+        icon={<img src={Menu} />}
+        text="Menu"
+        subItems={menuSubItems}
+        selectedSubItem={selectedSubItem}
+        onSubItemClick={handleSubItemClick}
+        onClick={() => handleItemClick("menu", true)}
+        active={currentView === "menu"}
+        hasSubmenu
+      />
       <SidebarItem icon={<img src={Customers} />} text="Customers" />
       <SidebarItem
         icon={<img src={Stores} />}
         text="Stores"
-        onClick={() => handleItemClick("stores")}
+        onClick={() => handleItemClick("stores", false)}
         active={currentView === "stores"}
       />
       <SidebarItem
@@ -69,7 +84,7 @@ const SidebarNav: React.FC<SidebarNavProps> = ({
         subItems={settingsSubItems}
         selectedSubItem={selectedSubItem}
         onSubItemClick={handleSubItemClick}
-        onClick={() => setCurrentView('settings')}
+        onClick={() => handleItemClick("settings", true)}
         active={currentView === "settings"}
         hasSubmenu
       />

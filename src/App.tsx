@@ -7,7 +7,11 @@ RemoteSettingsIntegrationComponent,
 RemoteSettingsGeneralComponent,
 RemoteOrdersComponent,
 RemoteStoresComponent,
-RemoteMenuCategoryComponent
+RemoteMenuCategoryComponent,
+RemoteMenuAddOnsComponent,
+RemoteMenuCombosComponent,
+RemoteMenuDealsComponent,
+RemoteMenuProductComponent
 } from "./remoteComponents";
 import "./App.css";
 import "./index.css";
@@ -27,18 +31,8 @@ const App = () => {
   const [showCloseIcon, setShowCloseIcon] = useState(width < 375);
   const handleSettingsSubItemClick = (item: string) => {
     setSelectedSettingsItem(item);
-    setCurrentView("settings");
   };
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-  const handleItemClick = (view: string) => {
-    setCurrentView(view);
-    if (view === "dashboard") {
-      setSelectedSettingsItem(null);
-    }
-    if (width < 640) {
-      toggleSidebar();
-    }
-  };
 // import remote app styles with error handling
   useEffect(() => {
     const loadRemoteStyles = async () => {
@@ -138,7 +132,6 @@ const App = () => {
               )}
               <SidebarNav
                 onSettingsSubItemClick={handleSettingsSubItemClick}
-                onItemClick={handleItemClick}
                 currentView={currentView}
                 setCurrentView={setCurrentView}
               />
@@ -169,6 +162,11 @@ const App = () => {
                 element={<RemoteSettingsGeneralComponent />}
               />
               <Route path="/orders" element={<RemoteOrdersComponent />} />
+              <Route path="/menu/category" element={<RemoteMenuCategoryComponent />} />
+              <Route path="/menu/product" element={<RemoteMenuProductComponent />} />
+              <Route path="/menu/addons" element={<RemoteMenuAddOnsComponent />} />
+              <Route path="/menu/combos" element={<RemoteMenuCombosComponent />} />
+              <Route path="/menu/deals" element={<RemoteMenuDealsComponent />} />
               <Route path="*" element={<div>Not Found</div>} />
             </Routes>
           </div>

@@ -7,6 +7,10 @@ const RemoteSettingsMarketPlaceDesign = React.lazy(() => import('dhaam_settings_
 const RemoteSettingsIntegration = React.lazy(() => import('dhaam_settings_app_ui/IntegrationComponent'));
 const RemoteSettingsGeneral = React.lazy(() => import('dhaam_settings_app_ui/GeneralComponent'));
 const RemoteMenuCategory = React.lazy(() => import('dhaam_menu_app_ui/CategoryComponent'));
+const RemoteMenuProduct = React.lazy(() => import('dhaam_menu_app_ui/ProductComponent'));
+const RemoteMenuAddOns = React.lazy(() => import('dhaam_menu_app_ui/AddOnsComponent'));
+const RemoteMenuCombos = React.lazy(() => import('dhaam_menu_app_ui/CombosComponent'));
+const RemoteMenuDeals = React.lazy(() => import('dhaam_menu_app_ui/DealsComponent'));
 // const RemoteAdminDiv = React.lazy(() => import('dhaam_admin_app_ui/AdminDiv'));
 export const RemoteOrdersComponent = () => {
     return (
@@ -63,6 +67,46 @@ export const RemoteOrdersComponent = () => {
       <ErrorBoundary errorMessage="Remote Settings General is not available">
         <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
           <RemoteSettingsGeneral />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  export const RemoteMenuProductComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Menu Product is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteMenuProduct />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  export const RemoteMenuAddOnsComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Menu AddOns is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteMenuAddOns />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  export const RemoteMenuCombosComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Menu Combos is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteMenuCombos />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  export const RemoteMenuDealsComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Menu Deals is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteMenuDeals />
         </React.Suspense>
       </ErrorBoundary>
     );
