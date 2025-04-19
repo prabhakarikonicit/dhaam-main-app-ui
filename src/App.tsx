@@ -16,9 +16,7 @@ import {
   //   RemoteAdminDivComponent,
 } from "./remoteComponents";
 import "./App.css";
-import "dhaam_settings_app_ui/tailwindStyles";
 // import "dhaam_order_app_ui/tailwindStyles";
-import "dhaam_menu_app_ui/tailwindStyles";
 import "./index.css";
 import SidebarNav from "./localComponents/sidebarNav";
 import { useEffect, useState } from "react";
@@ -73,6 +71,12 @@ const App = () => {
         await import("dhaam_store_app_ui/tailwindStyles");
       } catch (error) {
         console.error("failed to load remote store styles");
+      }
+
+      try {
+        await import("dhaam_menu_app_ui/tailwindStyles");
+      } catch (error) {
+        console.error("failed to load remote menu styles");
       }
     };
     loadRemoteStyles();
