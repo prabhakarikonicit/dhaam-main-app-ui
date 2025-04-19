@@ -6,9 +6,8 @@ RemoteSettingsMarketPlaceDesignComponent,
 RemoteSettingsIntegrationComponent,
 RemoteSettingsGeneralComponent,
 RemoteOrdersComponent,
-RemoteStoresComponent
-//   RemoteStoreDivComponent,
-//   RemoteAdminDivComponent,
+RemoteStoresComponent,
+RemoteMenuCategoryComponent
 } from "./remoteComponents";
 import "./App.css";
 import "./index.css";
@@ -59,6 +58,11 @@ const App = () => {
         await import ("dhaam_store_app_ui/tailwindStyles");
       }catch (error) {
         console.error("failed to load remote store styles");
+      }
+      try {
+        await import ("dhaam_menu_app_ui/tailwindStyles");
+      }catch (error) {
+        console.error("failed to load remote menu styles");
       }
     }
     loadRemoteStyles();

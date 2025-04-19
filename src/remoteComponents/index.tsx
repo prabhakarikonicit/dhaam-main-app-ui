@@ -6,6 +6,7 @@ const RemoteSettingsConfigs = React.lazy(() => import('dhaam_settings_app_ui/Con
 const RemoteSettingsMarketPlaceDesign = React.lazy(() => import('dhaam_settings_app_ui/MarketPlaceDesignComponent'));
 const RemoteSettingsIntegration = React.lazy(() => import('dhaam_settings_app_ui/IntegrationComponent'));
 const RemoteSettingsGeneral = React.lazy(() => import('dhaam_settings_app_ui/GeneralComponent'));
+const RemoteMenuCategory = React.lazy(() => import('dhaam_menu_app_ui/CategoryComponent'));
 // const RemoteAdminDiv = React.lazy(() => import('dhaam_admin_app_ui/AdminDiv'));
 export const RemoteOrdersComponent = () => {
     return (
@@ -67,12 +68,12 @@ export const RemoteOrdersComponent = () => {
     );
   };
 
-  // export const RemoteAdminDivComponent = () => {
-  //   return (
-  //     <ErrorBoundary errorMessage="Remote Admin Div is not available">
-  //       <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
-  //         <RemoteAdminDiv />
-  //       </React.Suspense>
-  //     </ErrorBoundary>
-  //   );
-  // };
+  export const RemoteMenuCategoryComponent = () => {
+    return (
+      <ErrorBoundary errorMessage="Remote Menu Category is not available">
+        <React.Suspense fallback={<p>Loading Remote Component ...</p>}>
+          <RemoteMenuCategory />
+        </React.Suspense>
+      </ErrorBoundary>
+    );
+  };
