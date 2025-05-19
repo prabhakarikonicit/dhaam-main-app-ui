@@ -1,5 +1,6 @@
 const env = process.env.NODE_ENV || "local";
 
+console.log("Environment:", process.env.NODE_ENV);
 const urls = {
   local: {
     dhaam_order_app_ui: "dhaam_order_app_ui@http://localhost:3002/dhaam_order_app_ui.js",
