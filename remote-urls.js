@@ -1,4 +1,4 @@
-const env = process.env.APP_ENV || "local";
+const env = process.env.NODE_ENV || "local";
 
 const urls = {
   local: {
